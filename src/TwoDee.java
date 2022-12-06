@@ -4,8 +4,9 @@ import java.util.Arrays;
 
 public class TwoDee {
     public static int[][] randNumbers = {
+            {1, 1, 1},
             {0, 0, 0},
-            {0, 0, 0},
+            {0, 0, 0}
     };
     public static void main(String[] args) {
         arrayFill();
@@ -27,10 +28,10 @@ public class TwoDee {
             if ((randNumbers[i][0] == (randNumbers[i][1])) && (randNumbers[i][0] == (randNumbers[i][2]))) {
                 System.out.println(Arrays.toString(randNumbers[i]));
             }
-
-            }
-        System.out.println("No matches!");
+            else {
+                System.out.println("No matches!");
             }
         }
-
+        }
+    }
 
