@@ -6,32 +6,40 @@ public class TwoDee {
     public static int x = (int) Math.floor(Math.random() * 5) + 1;
     public static int y = (int) Math.floor(Math.random() * 5) + 1;
 
-    public static int[][] arrayOne = {
-            {1, 2, 3},
-            {4, 5, 6}
-    };
+    public static int[][] arrayOne = new int[x][y];
 
-    public static int[][] arrayTwo = {
-            {7, 8},
-            {9, 10},
-            {11, 12}
-    };
+    public static int[][] arrayTwo = new int[y][x];
+
+    public static int[][] resultArray = new int[arrayOne.length][arrayOne.length];
+    public static int tempNum = 0;
+    public static int sum = 0;
 
     public static void main(String[] args) {
-        //arrayFill();
+        arrayFill();
         arrayMultiply();
     }
 
 
     public static void arrayMultiply() {
-        for (int i  = 0; i < arrayOne.length; i++) {
-            for (int j = 0; j < arrayOne[0].length; j++) {
-                System.out.println(arrayOne[i][j]);
-                System.out.println(arrayTwo[j][i]);
-                System.out.println(arrayOne[i][j] * arrayTwo[j][i]);
-                System.out.println("");
+        for (int i = 0; i < arrayOne.length; i++) {
+            int[] tempArray = arrayOne[i];
+            for (int k = 0; k < arrayOne.length; k++) {
+                for (int j = 0; j < arrayOne[i].length; j++) {
+                    tempNum = tempArray[j] * arrayTwo[j][k];
+                    sum += tempNum;
+
+                }
+                resultArray[i][k] = sum;
+                sum = 0;
+
             }
         }
+        System.out.println("");
+        System.out.println("Result: ");
+        for (int i = 0; i < resultArray.length; i++) {
+            System.out.println(Arrays.toString(resultArray[i]));
+        }
+
     }
     public static void arrayFill() {
         System.out.println("Array One");
